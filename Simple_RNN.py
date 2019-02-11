@@ -56,5 +56,9 @@ def main():
     regressor.fit(X_train, y_train, batch_size = 32, epochs = 100)
     predicted_stock_price = regressor.predict(inputs)
     predicted_stock_price = sc.inverse_transform(predicted_stock_price)
+    plot_graph(predicted_stock_price,test_set)
     rmse = math.sqrt(mean_squared_error(test_set, predicted_stock_price))
     print('RMSE: ',rmse)
+
+if __name__ == '__main__':
+    main()
